@@ -6,6 +6,7 @@ docker compose down
 ```
 
 To also remove the persistent Postgres volume that delets all database data as well
+```bash
 docker compose down -v
 ```
 
