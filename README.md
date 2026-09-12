@@ -120,3 +120,25 @@ Live metrics confirmed via a graphed query (`node_memory_MemAvailable_bytes`):
 ![Prometheus metrics graph](docs/screenshots/prometheus-graph.png)
 
 ## Task 5: Git & Documentation
+
+### Branching strategy
+Work was split into feature branches by task area, each merged into `main` once verified:
+- `feature/linux-hardening` — Task 1 (user, SSH, UFW)
+- `feature/docker-setup` — Task 2 (Flask app, Nginx, Docker Compose)
+- `feature/backups-monitoring` — Task 4 (backup script, restore docs, Prometheus/Node Exporter)
+- `feature/final-docs` — final README review and teardown documentation
+
+Commits were made incrementally as each piece was completed and verified, rather than as a single dump at the end. 
+
+### Repository structure
+```
+├── app/                    # Flask backend + Dockerfile
+├── nginx/                  # Reverse proxy config
+├── monitoring/             # Prometheus config
+├── scripts/                # infra_health_check.sh, db_backup.sh
+├── docs/
+│   ├── screenshots/        # Verification screenshots
+│   └── restore-instructions.md
+├── docker-compose.yml
+└── README.md
+```
