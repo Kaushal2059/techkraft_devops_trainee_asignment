@@ -72,6 +72,22 @@ and via browser at `http://192.168.221.142/`:
 
 ## Task 3: Automation & Shell Scripting
 
+### Script: `/opt/scripts/infra_health_check.sh`
+Checks CPU, RAM, and root disk usage, verifies Docker is running and the app container is up. If disk usage exceeds 85% or the app container is stopped, prints a `[WARNING]` and appends a timestamped entry to `/var/log/infra_health.log`.
+
+### Cron job
+Runs every 15 minutes via `trainee`'s crontab:
+
+*/15 * * * * /opt/scripts/infra_health_check.sh >> /var/log/infra_health_cron.log 2>&1
+
+
+### Verification
+- Manual run confirmed CPU/RAM/disk stats print correctly.
+- Stopping the app container and re-running triggered a `[WARNING]` and a log entry in `/var/log/infra_health.log`.
+- Cron job confirmed firing by temporarily setting it to run every minute and checking `/var/log/infra_health_cron.log` for output.
+
+![Health check script output](docs/screenshots/health-check-log.png)
+
 ## Task 4: Monitoring, Backups & Disaster Recovery
 
 ## Task 5: Git & Documentation
