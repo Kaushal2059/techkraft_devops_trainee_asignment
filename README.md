@@ -6,8 +6,8 @@
 1. Created `trainee` user with sudo privileges:
 
 commands used:
-sudo adduser trainee
-sudo usermod -aG sudo trainee
+- sudo adduser trainee
+- sudo usermod -aG sudo trainee
 
 2. Generated an SSH key pair on host, copied public key to `trainee`'s `~/.ssh/authorized_keys`.
 3. Hardened `/etc/ssh/sshd_config`by adding the following lines
@@ -31,9 +31,9 @@ sudo usermod -aG sudo trainee
 
 
 ### Verification
-- `ssh -p 2222 trainee@<vm-ip>` connects via key, no password prompt.
+- `ssh -p 2222 trainee@192.168.221.145` connects via key, no password prompt.
 ![ssh-confirmation](docs/screenshots/ssh-login-confirmation.png)
-- `ssh -p 2222 root@<vm-ip>` is rejected (root login disabled).
+- `ssh -p 2222 root@192.168.221.145` is rejected (root login disabled).
 ![root-deny-confirmation](docs/screenshots/root-deny.png)
 - `sudo ufw status verbose` confirms only 2222/80/443 allowed:
 ![UFW-Status](docs/screenshots/ufw-status.png)
