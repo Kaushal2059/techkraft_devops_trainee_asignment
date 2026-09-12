@@ -126,7 +126,7 @@ Work was split into feature branches by task area, each merged into `main` once 
 - `feature/linux-hardening` — Task 1 (user, SSH, UFW)
 - `feature/docker-setup` — Task 2 (Flask app, Nginx, Docker Compose)
 - `feature/backups-monitoring` — Task 4 (backup script, restore docs, Prometheus/Node Exporter)
-- `feature/final-docs` — final README review and teardown documentation
+- `feature/teardown-steps` — final teardown documentation
 
 Commits were made incrementally as each piece was completed and verified, rather than as a single dump at the end. 
 
